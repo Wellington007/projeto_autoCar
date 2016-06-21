@@ -1,0 +1,438 @@
+#nav ul li, .nav_right ul li
+{
+	cursor: pointer;
+	display: inline-block;
+	font-size: 14px;
+	list-style: none;
+	margin-right: 20px;
+}
+#nav
+{
+	background-color: #097FAD;
+	box-shadow: 2px 1px 4px 2px rgba(0,0,0,0.75);
+	color: #fff;
+	height: 50px;
+	left: 0px;
+	position: absolute;
+	top: 0px;
+	transition: none .0s ease-in-out;
+	width: 100%;
+	z-index: 1000;
+}
+.nav_left >ul li:hover
+{
+	opacity: 0.8;
+}
+.nav_left ul li a
+{
+	color: white;
+	text-decoration: none;
+}
+.nav_right
+{
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	z-index: 1001;
+}
+.nav_right ul li a
+{
+	margin-top: -3px;
+}
+body
+{
+	background-color: #fff;
+}
+#nav:before
+{
+	background: url(../../imagens/land.png);
+	content: "";
+	cursor: pointer;
+	display: inline-block;
+	float: left;
+	height: 200px;
+	margin-top: 40px;
+	width: 320px;
+}
+.nav_left
+{
+	margin-top: 0px;
+}
+.nav_left ul
+{
+	float: left;
+	list-style: none;
+	position: relative;
+}
+.nav_left ul a
+{
+	color: black;
+	display: block;
+	font-family: "HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 12px;
+	line-height: 32px;
+	text-decoration: none;
+}
+.nav_left ul li
+{
+	float: left;
+	position: relative;
+}
+.nav_left ul li.current-menu-item
+{
+	background: #097FAD;
+}
+.nav_left ul li:hover
+{
+	background: #097FAD;
+}
+.nav_left ul ul
+{
+	background: #097FAD;
+	display: none;
+	left: 0;
+	padding: 5px;
+	position: absolute;
+	top: 100%;
+}
+.nav_left ul ul li
+{
+	float: none;
+	width: 100px;
+}
+.nav_left ul ul a
+{
+	line-height: 90%;
+	padding: 10px 15px;
+}
+.nav_left ul ul ul
+{
+	left: 100%;
+	top: 0;
+}
+.nav_left ul li:hover > ul
+{
+	display: block;
+}
+.nav_right ul li a
+{
+	color: #097FAD;
+	margin-bottom: -4px;
+}
+.nav_right ~ul li:hover
+{
+}
+.nav_right ul li
+{
+	background: white;
+	border-radius: 10px;
+	margin-top: -8px;
+	padding: 5px;
+}
+.nav_right ul li:hover
+{
+	background: white;
+	border-radius: 10px;
+	color: #097FAD;
+	margin-top: -8px;
+	opacity: 0.5;
+	padding: 5px;
+}
+article
+{
+	float: left;
+	margin: 4% auto;
+	margin-left: 30%;
+	position: relative;
+}
+#resumo
+{
+	background-image: url(../../imagens/resumo_titulo.jpg);
+	height: 38px;
+	margin-top: 20%;
+	width: 130px;
+}
+#relatorio
+{
+	background-image: url(../../imagens/relatorios.png);
+	height: 249px;
+	margin-top: 20%;
+	width: 260px;
+}
+#restrita
+{
+	background-image: url(../../imagens/travel.png);
+	height: 258px;
+	margin-top: 20%;
+	width: 280px;
+}
+
+#relatorio select, #restrita select
+{
+	background: #097FAD;
+	border: 0px;
+	border-radius: 4px;
+	color: white;
+	margin-left: 300px;
+	opacity: 0.8;
+	padding: 7px;
+}
+#relatorio p, #restrita p
+{
+	font-size: 28px;
+	margin-left: 300px;	
+	opacity: 0.6;
+	width: 400px;
+}
+
+#container
+{
+	width: 900px;
+}
+
+
+#detalharReserva
+{
+	background: #5A7FBD;
+	border: 0px;
+	border-radius: 5px;
+	cursor: pointer;
+	display: block;
+	font-size: 16px;	    
+	padding: 10px;
+}
+
+#cadastrarReserva
+{
+	background: #5A7FBD;		
+	border: 0px;
+	border-radius: 5px;
+	cursor: pointer;
+	display: block;
+	font-size: 16px;	    
+	padding: 10px;
+}
+
+#listarResumo{
+    background: #5A7FBD;		
+	border: 0px;
+	border-radius: 5px;
+	cursor: pointer;
+	display: block;
+	font-size: 16px;	    
+	padding: 10px;
+}
+
+#form_bt{
+    width: 500px;
+    margin-top: 50px;
+    margin-left: 260px;
+}
+#form_bt input{
+    
+    display: inline-block;
+    margin-left: 20px;
+}
+
+#container p
+{
+	font-size: 24px;
+	margin-top: 5px;
+	opacity: 0.6;
+}
+#conteudo_pagina
+{
+	position: relative;
+	width: 900px;
+}
+#conteudo_resumo
+{
+	display: table;
+}
+#conteudo_total
+{
+	border-bottom: 2px solid #EDEEEE;
+	padding-bottom: 10px;
+	width: 750px;
+}
+#container form
+{
+	top: 300px;
+	width: 80%;
+}
+#menu_lateral
+{
+	border: 0px;
+	display: block;
+	float: left;
+	margin-top: 15.5%;
+	padding: 25px;
+	position: absolute;
+	transition: all .615s ease-in-out;
+	width: 200px;
+}
+#menu_lateral a
+{
+	padding: 20px;
+}
+#menu_lateral a:hover
+{
+	opacity: 0.7;
+}
+.menu_lat
+{
+	border-top: 1px solid;
+	margin-left: 45px;
+	padding: 10px;
+}
+#listaViagens
+{
+	display: none;
+	width: 100%;
+}
+#listaReserva .remove-icon
+{
+	height: 20px;
+}
+#listaReserva .edit-icon
+{
+	height: 20px;
+}
+#detalhesReserva
+{
+	display: none;
+	width: 100%;
+}
+#detalhesReserva .remove-icon
+{
+	height: 20px;
+}
+#detalhesReserva .edit-icon
+{
+	height: 20px;
+}
+#listaCategoria
+{
+	display: none;
+	width: 100%;
+}
+#listaCategoria .remove-icon
+{ 
+	height: 20px;
+}
+#listaCategoria .edit-icon
+{
+	height: 20px;
+}
+#form_reserva .input
+{
+	border-radius: 10px;
+}
+
+#configuracao_usuario{
+margin: 0px auto;
+display: none;
+}
+#configuracao_usuario p{
+    font-size: 24px;
+    opacity: 0.6;
+}
+#DelAccount, #alterPass{
+border-radius: 10px;
+box-shadow: 10px 10px 10px;
+background:  #097FAD;   
+display: block;    
+width: 450px;
+text-align: center;
+padding: 40px;
+border: 1px solid white;
+margin: 0px auto;   
+
+}
+
+#DelAccount input[type=submit], #alterPass input[type=submit]{
+    width: 65px;
+    margin:  0px auto;
+    cursor: pointer;
+    background: white;
+    padding: 10px;
+    color: #097FAD;
+    border-radius: 5px;
+    margin-top: 10px;
+    border: 0px;
+}
+
+#user_acc{
+
+border-radius: 10px;
+box-shadow: 10px 10px 10px;
+background:  #097FAD;   
+display: block;    
+width: 450px;
+text-align: center;
+padding: 40px;
+border: 1px solid white;
+margin: 0px auto;    
+}
+#user_acc input, #DelAccount input, #alterPass input{
+    display: block;
+    width: 50%;
+    margin-left: 25%;
+}
+#info{
+    display: block;
+    width: 50%;
+    margin-left: 25%;
+}
+#user_acc label{
+    color: white;
+}
+#user_acc input[type=submit]{
+    width: 50px;
+    margin:  0px auto;
+    cursor: pointer;
+    background: white;
+    padding: 10px;
+    color: #097FAD;
+    border-radius: 5px;
+    margin-top: 10px;
+    border: 0px;
+}
+#welcomeUser{
+    position: absolute;
+    color: white;
+    font-size: 18px;
+    top: -7px;    
+    float: right;
+    width: 250px;
+    padding: 3px;
+    
+}
+#welcomeUser:hover{
+    
+    background: none;
+    cursor: auto;
+    opacity: 1;
+    
+}
+.subtitulo{
+	font-weight: bolder;
+}
+.coluna1{
+	width: 300px;
+	display: block;
+	float: left;
+}
+.coluna2{
+	width: 500px;
+}
+.detLocal, .total{
+	font-size: 25px;
+	margin: 10px 5px;
+}
+.detPeriodo{
+	margin-bottom: 5px;
+}
+fieldset{
+	width: 650px;
+}

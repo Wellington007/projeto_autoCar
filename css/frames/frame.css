@@ -1,0 +1,101 @@
+#black_overlay
+{
+	background-color: black;
+	display: none;
+	filter: alpha(opacity=80);
+	height: 100%;
+	left: 0%;
+	moz-opacity: 0.8;
+	opacity: 0.8;
+	position: absolute;
+	top: 0%;
+	width: 100%;
+	z-index: 1004;
+}
+#white_content, #frame_reserva, #frame_categoria, #frame_alterar_categoria, #frame_alterar_reserva, #frame_alterar_despesa
+{
+	background-color: white;
+	border: 16px solid #097FAD;
+	display: none;
+	height: 70%;
+	left: 25%;
+	overflow: auto;
+	padding: 6px;
+	position: absolute;
+	top: 10%;
+	width: 50%;
+	z-index: 1005;
+}
+.form_reserva, #form_despesas
+{
+		
+	margin: -10px auto;
+	
+}
+.fechar
+{
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+.form_categoria
+{
+	display: inline;
+	margin: 40px 30% auto;
+	position: absolute;
+	width: 150px;
+}
+.form_alterar_reserva
+{
+	display: inline;
+	margin: 40px 30% auto;
+	position: absolute;
+	width: 150px;
+}
+.form_alterar_despesa
+{
+	display: inline;
+	margin: 40px 30% auto;
+	position: absolute;
+	width: 150px;
+}
+.form_alterar_categoria
+{
+	display: inline;
+	margin: 40px 30% auto;
+	position: absolute;
+	width: 150px;
+}
+.form_reserva, #form_despesas{
+    
+    width: 150px;    
+                   
+}
+.form_reserva input, #form_despesas input{
+    float: right;
+    border-radius: 5px;        
+    border: 0px solid;
+    background: #CACAD9;
+    width: 150px;
+}
+.form_reserva label{
+    float: left;                
+}
+#form_despesas select, .form_reserva select{
+    width: 150px;   
+
+}
+#form_despesas label, #form_despesas select{
+    float: left;
+    display: block;
+    padding: 4px;
+    
+}
+#form_despesas, .form_reserva{
+    margin-top: 10px;
+}
+#form_despesas input[type=submit], .form_reserva input[type=submit]{
+    margin-top: 10px;
+    padding: 7px;
+    width: 50px;
+}

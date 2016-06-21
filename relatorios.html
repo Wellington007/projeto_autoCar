@@ -1,0 +1,401 @@
+
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      <!-- Favicon Icon -->
+      <link rel="shortcut icon" href="imagens/log.png"/>
+      <!-- Styles -->
+      <link href="css/restrita/restrita.css" rel="stylesheet" />
+      <link rel="stylesheet" href="css/frames/frame.css"/>
+      <link rel="stylesheet" href="css/restrita/table.css">
+      <link rel="stylesheet" href="css/restrita/relatorio.css">
+      <!-- Libraries -->
+      <script src="js/Libraries/jquery-1-9.js"></script> 
+      <script src="js/Libraries/highchart.js"></script>
+      <script src="http://code.highcharts.com/highcharts-3d.js"></script>
+      <script src="js/Libraries/highchart_model.js"></script>
+      <title>AutoCar Rent Car</title>
+   </head>
+   <body>
+      <div id="black_overlay"></div>
+      <header>
+       
+         <!-- Menu Left DropDown -->  
+         <nav id="nav" class="nav_left">
+            <ul>
+               <li onclick="location.href='restrita.html'">INICIO</li>
+               <li>
+                  <div>BUSCAR VEICULOS</div>
+                  <ul>
+                     
+                  </ul>
+               </li>
+               <li>
+                  <div>RESERVAR</div>
+                  <ul>
+                     <li><a href="#" onclick="Index_frame.abrirFrame();ControllerTravel.inicializar();Index_get_categorias.inicializar();">Cadastrar</a></li>
+                  </ul>
+               </li>
+               <li>
+                  <div>ALTERAR RESERVAS</div>
+                  <ul>
+                     <li><a href="#"
+                        onclick="Index_frameCategoria.abrirFrameCategoria();">Cadastro realizado</a></li>
+                     <li><a href="#" onclick="CategoriasControler.inicializar();">Listar</a></li>
+                  </ul>
+               </li>
+               <li onclick="location.href='relatorios.html'">CANCELAR</li>
+            </ul>
+           
+            
+            <!-- Menu Right -->  
+            <nav class="nav_right">
+               <ul>
+                  <li><a href="#" id="user_account">Configuracões de conta</a></li>
+                  <li><a href="php/Logout/logout.php">Sair</a></li>
+               </ul>
+            </nav>
+               <nav>
+               <ul>
+               <li><div id="welcomeUser"></div></li>                              
+            </ul>
+       </nav>
+         </nav>
+      <!-- Fim do Cabeçalho -->         
+      </header>
+      
+      <!-- Menu Lateral  -->  
+      <div id="menu_lateral">
+         <div class="menu_lat"><a href="#" onclick="Resume_getDados.inicializar(101);"><img 
+            src="imagens/bot_moradia_ativo.jpg" alt=""></a></div>
+         <div class="menu_lat"><a href="#" onclick="Resume_getDados.inicializar(102);"><img src="imagens/bot_alimentacao_ativo.jpg" alt=""></a></div>
+         <div class="menu_lat"><a href="#" onclick="Resume_getDados.inicializar(103);"><img src="imagens/bot_transporte_ativo.jpg" alt=""></a></div>
+         <div class="menu_lat"><a href="#" onclick="Resume_getDados.inicializar(104);"><img src="imagens/bot_comunicacao_ativo.jpg" alt=""></a></div>
+         <div class="menu_lat"><a href="#" onclick="Resume_getDados.inicializar(105);"><img src="imagens/bot_lazer_ativo.jpg" alt=""></a></div>
+         <div class="menu_lat"><a href="#" onclick="Resume_getDados.inicializar(106);"><img src="imagens/bot_saude_ativo.jpg" alt=""></a></div>
+         <div class="menu_lat"><a href="#" onclick="Resume_getDados.inicializar(107);"><img src="imagens/bot_diversos_ativo.jpg" alt=""></a></div>
+      </div>
+      
+      <!-- Frame Viagens  -->  
+      <div id="frame_reserva" class="frame">
+         <div class="fechar">
+            <a href = "javascript:void(0)" onclick = "document.getElementById('frame_reserva').style.display='none';document.getElementById('black_overlay').style.display='none'">Fechar[X]</a>
+         </div>
+         <label>Reservas</label>
+         <form action="" id="form_reserva" name="form_reserva" class="form_reserva" method="post">
+            
+            <label for="">Local: </label>
+            <input type="text" name="local" required>
+            <label for="">Cidade: </label>
+            <input type="text" name="cidade">
+            <label for="">País: </label>
+            <input type="text" name="pais">                              
+            <label for="">Data Partida: </label>
+            <input type="date" name="dateCheckin" pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="dd/mm/aaaa" required>
+            <label for="">Data Retorno: </label>
+            <input type="date" name="dateCheckout" pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="dd/mm/aaaa" required>
+            <label for="">Valor Previsto: </label>
+            <input type="text" name="valorPi"  pattern="^\\$?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$" placeholder="0000,00" required>
+            <label for="">Valor Limite: </label>
+            <input type="text" name="valorL"  pattern="^\\$?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$" placeholder="0000,00" required>
+            <label for="">Observação: </label>
+            <textarea name="observacao"></textarea>
+            <input type="submit" name="gravar_reserva" id="gravar_reserva" value="Gravar">           
+         </form>
+      </div>
+      
+      <!-- Frame Despesas  -->  
+      <div id="white_content" class="frame">
+         <div class="fechar">
+            <a href = "javascript:void(0)" onclick ="document.getElementById('white_content').style.display='none';document.getElementById('black_overlay').style.display='none'">Fechar[X]
+            </a>
+         </div>
+         <form action="" class="form_reserva" name="form_gravar" method="post">
+            <label for="">Escolha a viagem</label>
+            <select name="comboReserva" id="comboReserva">
+               <option value="aguarde...">Aguarde...</option>
+            </select>
+            <label for="Valor">Descrição: </label>
+            <input type="text" name="descricao" required>
+            <label>Escolha a Categoria</label>
+            <select name="comboCategoria" id="comboCategoria">
+               <option value="aguarde...">Aguarde...</option>
+            </select>
+            <label for="">Valor: </label>
+            <input type="text" name="valor" pattern="^\\$?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$" placeholder="0000,00" required>
+            <label for="">Data: </label>
+            <input type="date" name="data_lanc" value="" pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="dd/mm/aaaa" required>
+            <input type="submit" name="gravar" id="gravar" value="Gravar">
+         </form>
+      </div>
+      <!-- Frame Categoria -->
+      <div id="frame_categoria" class="frame">
+         <div class="fechar">
+            <a href = "javascript:void(0)" onclick = "document.getElementById('frame_categoria').style.display='none';document.getElementById('black_overlay').style.display='none'">Fechar[X]</a>
+         </div>
+         <form action="" id="form_categoria" name="form_categoria" class="form_categoria" method="post">
+            <label>Cadastro de Categorias</label>
+            <label for="">Descrição: </label>
+            <input type="text" name="descricao" required>
+            <input type="submit" name="gravar_categoria" id="gravar_categoria" value="Gravar">          
+         </form>
+      </div>
+      
+      <!-- Frame Alterar Viagens  -->  
+      <div id="frame_alterar_reserva" class="frame">
+         <div class="fechar">
+            <a href = "javascript:void(0)" onclick = "document.getElementById('frame_alterar_viagem').style.display='none';document.getElementById('black_overlay').style.display='none'">Fechar[X]</a>
+         </div>
+         <label>Editar Reserva</label>
+         <form action="" id="form_alterar_reserva" name="form_alterar_reserva" class="form_reserva" method="post">            
+            <label for="">Local: </label>
+            <input type="text" name="local" id="alterar_local"required>
+            <label for="">Cidade: </label>
+            <input type="text" name="cidade" id="alterar_cidade">
+            <label for="">País: </label>
+            <input type="text" name="pais" id="alterar_pais">                              
+            <label for="">Data Partida: </label>
+            <input type="date" name="dateCheckin" id="alterar_data_partida" pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="dd/mm/aaaa" required>
+            <label for="">Data Retorno: </label>
+            <input type="date" name="dateCheckout" id="alterar_data_retorno" pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="dd/mm/aaaa" required>
+            <label for="">Valor Previsto: </label>
+            <input type="text" name="valorP" id="alterar_valorP" pattern="^\\$?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$" placeholder="0000,00" required>
+            <label for="">Valor Limite: </label>
+            <input type="text" name="valorL" id="alterar_valorL" pattern="^\\$?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$" placeholder="0000,00" required>
+            <label for="">Observação: </label>
+            <textarea name="observacao" id="alterar_observacao"></textarea>
+            <input type="hidden" name="id_viagem" id="alterar_id_viagem" value="">
+            <input type="submit" name="gravar_reserva" id="gravar_reserva" value="Gravar">           
+         </form>
+      </div>
+      
+      <!-- Frame Alterar Despesas  -->  
+      <div id="frame_alterar_despesa" class="frame">
+         <div class="fechar">
+            <a href = "javascript:void(0)" onclick ="document.getElementById('frame_alterar_despesa').style.display='none';document.getElementById('black_overlay').style.display='none'">Fechar[X]
+            </a>
+         </div>
+         <form id="form_alterar_despesa" class="form_alterar_despesa" name="form_alterar_despesa" method="post">
+            <label for="">Escolha a viagem</label>
+            <select name="comboReserva" id="alterar_comboReserva" disabled>
+               <option value="aguarde...">Aguarde...</option>
+            </select>
+            <label for="Valor">Descrição: </label>
+            <input type="text" name="descricao" id="alterar_descricao" required>
+            <label>Escolha a Categoria</label>
+            <select name="comboCategoria" id="alterar_comboCategoria">
+               <option value="aguarde...">Aguarde...</option>
+            </select>
+            <label for="Valor">Valor: </label>
+            <input id="alterar_valor" type="text" name="valor" pattern="^\\$?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$" placeholder="0000,00" required>
+            <label for="">Data: </label>
+            <input id="alterar_data" type="date" name="data_lanc" value="" pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="dd/mm/aaaa" required>
+            <input type="hidden" name="id_despesa" id="alterar_id_despesa" value="">
+            <input type="hidden" name="id_reserva" id="alterar_despesa_id_reserva" value="">
+            <input type="submit" name="gravar" id="gravar" value="Gravar">
+         </form>
+      </div>
+      <!-- Frame Alterar Categoria -->
+      <div id="frame_alterar_categoria" class="frame">
+         <div class="fechar">
+            <a href = "javascript:void(0)" onclick = "document.getElementById('frame_alterar_categoria').style.display='none';document.getElementById('black_overlay').style.display='none'">Fechar[X]</a>
+         </div>
+         <form id="form_alterar_categoria" name="form_alterar_categoria" class="form_alterar_categoria" method="post">
+            <label>Editar Categoria</label>
+            <label for="">Descrição: </label>
+            <input type="text" name="descricao" id="alterar_descricao" required>
+            <input type="hidden" name="id_categoria" id="alterar_id_categoria" value="">
+            <input type="submit" name="gravar_categoria" id="gravar_categoria" value="Alterar">        
+         </form>
+      </div>
+      
+      <article>
+         
+           <div id="conteudo_pagina">
+            <div id="conteudo_total">
+               <div id="conteudo_resumo">
+                  <div id="relatorio">
+                     <form action="" method="post" name="form_relatorios">
+                        <p>Escolha o Relatório desejado e clique em gerar</p>
+                        <select name="comboRel" id="comboRelatorio">                           
+                           <option value="2">Média de gastos anuais com Locação</option>                           
+                        </select>
+                        <input type="submit" value="Gerar" name="gerar" id="gerarRel">
+                     </form>
+                  </div>
+               </div>
+            </div>
+            <div  id="container" >
+               <p>Relatórios</p>
+            </div>
+         </div>
+         
+         <div id="configuracao_usuario">
+            <p>Configurações de Conta</p>
+            <form action="" name="user_account" id="user_acc" method="post">
+               <label>Nome</label>  
+               <input id="nome" name="nome" type="text" class="tf" value="" required />
+               <label>Sobrenome</label>
+               <input id="sobrenome" name="sobrenome" type="text" class="tf" value="" required/>
+               <label>E-mail</label>
+               <input id="email2" name="email" type="text" class="tf" value="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/>
+               <label>Usuario</label>
+               <input id="user" name="usuario" type="text" class="tf" value="" required/>                
+               <label>Idade</label>
+               <input id="idade" name="idade" type="number" class="tf" value="">
+               <label>+ informações sobre você</label>  
+               <textarea id="info" name="info" class="tf">  </textarea>
+               <input id="salvar" type="submit" name="save" value="Salvar" />
+            </form>
+            
+             <p>Alteração de Senha</p>   
+                <form name="form_senha_alter" action="" id="alterPass" method="post">
+                                               
+                Senha Atual                
+                 <input id="passAtual" name="passA" type="password" class="tf" value="" required/>  
+                Nova Senha                
+                <input id="passNew" name="passN" type="password" class="tf" value="" required/>
+                Repita a senha                
+                <input id="passNewReq" name="passN2" type="password" class="tf" value="" required/> 
+                                 
+                <input type="submit" value="Gravar" id="gravarPass">
+                </form>
+                
+                <p>Desativar Conta</p>   
+                <form action="" id="DelAccount">
+                                               
+                Deseja desativar sua Conta*?
+                <input id="delAccount" type="submit" name="delAccount" value="Desativar" />
+                *Desativando sua conta, voce não terá mais acesso à ela, porém, para reativar, basta fazer login novamente e seguir as instruções!                    
+                </form>
+         </div>
+         <div id="relatorio_restrita">
+            <form action="" method="post" name="form_restrita_viagens" id="form_init">
+               <p>Cadastre uma nova reserva ou escolha uma reserva já cadastrada para visualizar mais detalhes</p>
+               <select name="comboReserva" id="comboReserva">                         
+               </select>
+               <input type="submit" value="Detalhes" name="gerar" id="gerar">
+               <input type="submit" value="Cadastrar" name="cadReserva" id="cadastrarReserva">
+               <input type="submit" value="Listar Todas" name="listarRes" id="listarResumo">
+            </form>
+         </div>
+         
+         <!--Frame Listar Reservas  -->
+         <div id="listaReserva">
+            <div class="table">
+               <span class="title">Reservas Realizadas</span>
+               <table id=tabelaReserva>
+                  <thead>
+                     <tr>
+                        <th>Local</th>
+                        <th>Data Partida</th>
+                        <th>Data Retorno</th>
+                        <th>Total Gasto</th>
+                        <th>Editar</th>
+                        <th>Excluir</th>
+                     </tr>
+                  </thead>
+                  <tbody id="conteudoTabelaReserva"></tbody>
+               </table>
+            </div>
+         </div>
+         
+         <!--Frame Listar Detalhes das Reservas  -->
+         <div id="detalhesReserva">
+            <div class="table">
+               <span class="title" id="detReserva">RESERVAR VEICULO</span>
+               <div class="detLocal">
+                  <span id="detCidade">Cidade</span>
+                  <span>-</span>
+                  <span id="detPais">Pais</span>
+               </div>
+               <div class="detPeriodo">
+                  <div class="coluna1">
+                     <span class="subtitulo">Data Partida:</span>
+                     <span id="detDataPartida"></span>
+                  </div>
+                  <div class="coluna2">
+                     <span class="subtitulo">Data Retorno:</span>
+                     <span id="detDataRetorno"></span>
+                  </div>
+               </div>
+               <div class="detOrcamento">
+                  <div class="coluna1">
+                     <span class="subtitulo">Valor Previsto:</span>
+                     <span id="detValorPrevisto"></span>
+                  </div>
+                  <div class="coluna2">
+                     <span class="subtitulo">Valor Limite:</span>
+                     <span id="detValorLimite"></span>
+                  </div>
+               </div>
+               <fieldset>
+                  <legend>Observação</legend>
+                  <span id="detObservacao"></span>
+               </fieldset>               
+               <table id="tabelaDespesas">
+                  <thead>
+                     <tr>
+                        <th>Descricao</th>
+                        <th>Data Lançamento</th>
+                        <th>Valor</th>
+                        <th>Categoria</th>
+                        <th>Editar</th>
+                        <th>Excluir</th>
+                     </tr>
+                  </thead>
+                  <tbody id="conteudoTabelaDespesas"></tbody>
+               </table>
+               <div class="total">
+                  <span class="subtitulo">Total Despesas:</span>
+                  <span id="total"></span>
+               </div>
+            </div>
+         </div>         
+         <!--Frame Listar Categorias  -->
+         <div id="listaCategoria">
+            <div class="table">
+               <span class="title">Categorias Criadas</span>
+               <table id=tabelaCategoria>
+                  <thead>
+                     <tr>
+                        <th>Descrição</th>
+                        <th>Editar</th>
+                        <th>Excluir</th>
+                     </tr>
+                  </thead>
+                  <tbody id="conteudoTabelaCategoria"></tbody>
+               </table>
+            </div>
+         </div>
+         
+      </article>
+      <!-- Scripts --> 
+      <script src="js/Ajax/Cadastro/controllerAccountDelet.js"></script>                 
+      <script src="js/ValidacoesForm.js/validacaoPass.js"></script>             
+      <script src="js/Ajax/Restrita/UserAccount.js"></script>             
+      <script src="js/Ajax/Restrita/userPass.js"></script>          
+      <script src="js/Utils/dateFormat.js"></script>         
+      <script src="js/Frames/frame.js"></script>
+      <script src="js/Ajax/Restrita/TravelControllerIndex.js"></script>               
+      <script src="js/Ajax/Restrita/ajaxGetDados.js"></script>
+      <script src="js/Highchart/jsGrafico1.js"></script>
+      <script src="js/Highchart/jsGraficoRel2.js"></script>
+      <script src="js/Ajax/Restrita/ControllerListTravels.js"></script>
+      <script src="js/Ajax/Restrita/ControllerTravel.js"></script>
+      <script src="js/Ajax/Restrita/ServiceTravel.js"></script>
+      <script src="js/Ajax/Restrita/ajaxGetCategorias.js"></script>
+      <script src="js/Ajax/Restrita/ajaxGetListaCategorias.js"></script>
+      <script src="js/Ajax/Restrita/ajaxGetListaDespesas.js"></script>
+      <script src="js/Ajax/Restrita/ServiceHtml.js"></script>         
+      <script src="js/Ajax/Restrita/index_gravar_dados.js"></script>
+      <script src="js/Ajax/Restrita/index_gravar_reserva.js"></script>
+      <script src="js/Ajax/Restrita/index_gravar_categoria.js"></script>
+      <script src="js/Form/Form.js"></script>
+      <script src="js/Security/verifica_sessao.js"></script> 
+      
+   </body>
+</html>
+

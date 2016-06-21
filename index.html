@@ -1,0 +1,142 @@
+<!DOCTYPE html> 
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <!-- Styles --> 
+      <link href="css/index/autocar.css" rel="stylesheet" />
+      <link href="css/index/autocarResponsive.css" rel="stylesheet" />
+      <link href="css/cadastro/cadastrar.css" rel="stylesheet" />
+      <!-- Favicon Icon -->
+      <link rel="shortcut icon" href="imagens/log.png"/>
+      <title>AutoCar Rent Car</title>
+   </head>
+   <body>
+      <header class="header-site">
+         <div class="header">
+            <div class="logo">                        
+            </div>
+            <div class="header-nav">
+               <nav class="nav" >
+                  <ul>                                          
+                  <li ><a href="AutoCar - Help User.chm">Ajuda</a></li>
+                  </ul>
+               </nav>
+            </div>
+            <nav class="nav-right">
+               <div id="login3">Já é cadastrado?Faça seu Login</div>
+               
+               <div  id="nav_right_login">
+                  <form id="form1" name="login_form" method="post" >                    
+                     Login: <input type="text" id="usuario" name = "usuario" value="" maxlength="300" />
+                     Senha: <input type="password" id="senha" name = "senha" maxlength="20" />    
+                     <input id="btnEntrar" name="entrar" class="entrar" type="submit" value="Entrar"/>                         
+                  </form>                                                    
+                  <div id="rec_senha">Esqueceu sua senha/usuário?</div>
+                                        <span id="resultLogin"></span>
+               </div>
+               
+               <div id="container_rec_senha">
+                  <form id="form2" name="form2" method="post" >          
+                     Preencha seu e-mail: <input name="email" type="text" id="email" />
+                     <input name="recupera" type="hidden" id="recupera" value="recupera" />
+                     <input id="senha_rec" type="submit" name="Submit" value="Gerar Senha" />
+                  </form>
+               </div>
+            </nav>
+            <div class="botaoCad" id="btCad">
+               <a >Quero me Cadastrar</a>                        
+            </div>
+            <div class="txtHeader" id="txth">
+               <div class="icon"> <img src="imagens/joia.png" alt="icon"/></div>
+            </div>
+            <div class="txtHeader" id="txth">
+               A Escolha certa para suas Viagens
+               <div class="pipeline "> <img src="imagens/pipeline.fw.png" alt="pipeline"/></div>
+               
+            </div>
+         </div>
+      </header>
+      <div class="body-1">
+         <h1>Somos a AutoCar a melhor locadora de automoveis do Brasil</h1>
+         Quer viajar e necessita de liberdade, conforto e segurança?
+         <h3>Temos a solução ideal para você!</h3>
+         <img src="imagens/log.png" alt="icone4"/>
+      </div>
+      <div class="body-2" >
+         <h1>Desenvolvido em plataforma totalmente responsiva e adaptativa</h1>
+         <img src="imagens/responsive.jpg" alt="responsive"/>
+      </div>
+      <div class="body-3" ><h1>Soluções Completas para a viagem dos seus sonhos</h1>
+         <img src="imagens/travel.png" alt="hightchart"/> 
+      </div>
+      <div class="body-4">
+         <img src="imagens/log.png" alt="icone4"/>
+      </div>
+      <div class="body-5" >
+         <h1>Cadastre-se e garanta já seu veiculo!</h1>
+         <div id="bd5p"> Com a AutoCar você tem as melhores opções de veiculos do mercado.
+            Faça já sua reserva online ou em uma de nossas agências 
+         </div>
+         <div id="tableLogin">
+            <fieldset id="fdset">
+            <form name="formulario" id="formulario_cadastro" action="salvar.jsp" method="post">
+            <label>Nome</label> <input type="text" name="nome" size="40" maxlength="150" /><br />
+            <label>Endereço</label> <input type="text" name="endereco" size="40" maxlength="150" /><br />
+            <label>CPF</label> <input type="text" name="cpf" size="20" maxlength="14" /><br />
+            <label>Telefone</label> <input type="tel" name="telefone" size="20" maxlength="20" /><br />
+            <label>E-mail</label> <input type="email" name="email" size="40" maxlength="150" /><br />
+            Sexo 
+            <input type="radio" id="sexoM" name="sexo" value="M" /> <label for="sexoM">Masculino</label>
+            <input type="radio" id="sexoF" name="sexo" value="F" /> <label for="sexoF">Feminino</label>
+            <label>Estado</label><select name="estado" id="estado">
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option> 
+            <option value="MA">Maranhão</option> 
+            <option value="MT">Mato Grosso</option> 
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PA">Pará</option>  
+            <option value="PB">Paraíba</option>  
+            <option value="PR">Paraná</option>  
+            <option value="PE">Pernambuco</option> 
+            <option value="PI">Piauí</option> 
+            <option value="RN">Rio Grande do Norte</option>   
+            <option value="RS">Rio Grande do Sul</option> 
+            <option value="RO">Rondônia</option>  
+            <option value="RR">Roraima</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="SP">São Paulo</option> 
+            <option value="SC">Santa Catarina</option>   
+            <option value="SE">Sergipe</option> 
+            <option value="TO">Tocantins</option>
+
+   </select>
+    <!-- Barra de botões -->
+    <div id="barra">
+   
+                  <input id="cadastrar" type="submit" name="Submit" value="Cadastrar" />
+               </form>
+            </fieldset>
+         </div>
+      </div>
+      <!-- Scripts -->
+      
+      <script src="js/Libraries/jquery-1-9.js"></script>                                      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>    
+      <script src="js/ValidacoesForm.js/validacaoPass.js"></script>          
+      <script src="js/Scroll_Efect/main2.js"></script>  
+      <script src="js/Ajax/Login/Index_login_ajax.js"></script>     
+      <script src="js/Ajax/Cadastro/Index_cadastrar_ajax.js"></script>
+      <script src="js/Form/Form.js"></script>
+      <script src="js/Ajax/Rec_senha/ajaxRecSenha.js"></script>     
+      <script src="js/Login_Efect/login_onclick.js"></script>           
+   </body>
+</html>
+
